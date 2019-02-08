@@ -110,36 +110,38 @@ output:
     bind_rows(year_counts, ps_counts, wa_counts, wa_noking_counts)
 
   homeless <-
-    fread("/data/homelessness/homeless-counts.csv.bz2")
+    fread("/data/homelessness/homeless-counts.csv.bz2") %>%
+    filter(!county %in% c("Puget Sound", "Washington", "WA No King")) %>%
+    mutate(county = ifelse(county == "TOTAL", "Washington", county))
 
   runits <-
     fread("/data/census/rental_units_cost.csv.bz2")
 
-  ps_homeless <-
-    homeless %>%
-    filter(county %in% c("King", "Snohomish", "Pierce", "Kitsap", "Thurston", "Skagit", "Island")) %>%
-    group_by(year) %>%
-    summarise(homeless = sum(homeless),
-              county = "Puget Sound") %>%
-    ungroup()
+  # ps_homeless <-
+  #   homeless %>%
+  #   filter(county %in% c("King", "Snohomish", "Pierce", "Kitsap", "Thurston", "Skagit", "Island")) %>%
+  #   group_by(year) %>%
+  #   summarise(homeless = sum(homeless),
+  #             county = "Puget Sound") %>%
+  #   ungroup()
 
-  wa_homeless <-
-    homeless %>%
-    group_by(year) %>%
-    summarise(homeless = sum(homeless),
-              county = "Washington") %>%
-    ungroup()
+  # wa_homeless <-
+  #   homeless %>%
+  #   group_by(year) %>%
+  #   summarise(homeless = sum(homeless),
+  #             county = "Washington") %>%
+  #   ungroup()
 
-  wa_noking_homeless <-
-    homeless %>%
-    filter(county != "King") %>%
-    group_by(year) %>%
-    summarise(homeless = sum(homeless),
-              county = "WA No King") %>%
-    ungroup()
+  # wa_noking_homeless <-
+  #   homeless %>%
+  #   filter(county != "King") %>%
+  #   group_by(year) %>%
+  #   summarise(homeless = sum(homeless),
+  #             county = "WA No King") %>%
+  #   ungroup()
 
-  homeless <-
-    bind_rows(homeless, ps_homeless, wa_homeless, wa_noking_homeless)
+  # homeless <-
+  #   bind_rows(homeless, ps_homeless, wa_homeless, wa_noking_homeless)
 
   change_units <- function(place){
     runits %>%
@@ -270,6 +272,8 @@ output:
 ```
 
 # Executive Summary {#index}
+
+_(Last Correction: WA Homelessness count - 2019-02-07 - see correction details at end of document)_
 
 <!-- In 2008, the Great Recession In 2018, the number of Washington State's homelessness population has risen to match Great Recession numbers. The cause: rising rents and stagnant wages.  about 46% of the states population has been rentburden  while, at the same time, more households  with an increase in the number of individuals experiencing homelessness has reached Great Recession numbers, and rapidly increasing rents are leaving low-income families with few options to live. The consequences of -->
 
@@ -859,3 +863,8 @@ Finally, when looking at incomes by race (Figure \@ref(fig:medinc) above) there 
 
 ```
 
+# Additions and Corrections {#correct}
+
+___2019-02-07___ - Correction: The WA count of homeless in figure 5.1 was accidentally doubled. Trends stayed the same but count was corrected.
+
+___2019-02-07___ - Initial Release
