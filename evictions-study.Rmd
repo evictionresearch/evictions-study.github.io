@@ -273,7 +273,7 @@ output:
 
 # Executive Summary {#index}
 
-_(Last Correction: WA Homelessness count - 2019-02-07 - see correction details at end of document)_
+[Updates and corrections](#correct)
 
 <!-- In 2008, the Great Recession In 2018, the number of Washington State's homelessness population has risen to match Great Recession numbers. The cause: rising rents and stagnant wages.  about 46% of the states population has been rentburden  while, at the same time, more households  with an increase in the number of individuals experiencing homelessness has reached Great Recession numbers, and rapidly increasing rents are leaving low-income families with few options to live. The consequences of -->
 
@@ -414,6 +414,21 @@ Using these addresses, race is estimated through a Bayesian prediction model usi
 Between 2013 and 2017, 1 in 55 (`r round(overallevictionrates, 1)`\%) Washingtonian adults faced an eviction. Figure \@ref(fig:evictioncounts) shows the number of unlawful detainer court cases from 2004 to 2017 across the state of Washington by county. With the exception of King, most counties experienced a steady count of evictions, with the top five most populated counties facing well over 1,000 evictions per year. King (green) saw a peak in evictions just before the end of the Great Recession, which ended around 2009, tapering off during recovery, and then a steady count from 2012.
 
 While the decline in evictions seems promising, a brief study from the Urban Institute suggests that the loss of affordable housing and a drop in the area's low-income population coincides with declines in evictions. In other words, declines in evictions may be because King County evicted everyone they could.^[[Urban Institute 2018: DC’s Eviction Filings Are Down. Are High Rents to Blame?](https://howhousingmatters.org/articles/dcs-eviction-filings-high-rents-blame/)] Section 5 goes further into this discussion, but in brief, Washington has lost 76,865 affordable homes at $800 or less since 2012, coinciding with an increase in homelessness that matches Great Recession numbers. Given that eviction is a leading cause of homelessness^[[Crane, Maureen, and Anthony M. Warnes. "Evictions and prolonged homelessness." Housing studies 15, no. 5 (2000): 757-773.](https://www.tandfonline.com/doi/abs/10.1080/02673030050134592)] ^[[Desmond, Matthew. "Eviction and the reproduction of urban poverty." American Journal of Sociology 118, no. 1 (2012): 88-133.](https://scholar.harvard.edu/mdesmond/files/desmond.evictionpoverty.ajs2012.pdf)] ^[[Curtis, Marah A., Hope Corman, Kelly Noonan, and Nancy E. Reichman. "Life shocks and homelessness." Demography 50, no. 6 (2013): 2227-2253.](http://www.nber.org/papers/w16826.pdf)] it seems likely that lower evictions might decline when homelessness is high and affordable housing is scarce.
+
+```{r evictioncountycounts, echo = FALSE, message = FALSE, fig.cap = "Unlawful Detainer Cases by Washington County", cache = TRUE}
+
+knitr::kable(
+  year_counts %>%
+  group_by(County) %>%
+  mutate(Total = sum(Count)) %>%
+  spread(Year, Count) %>%
+  replace(is.na(.), 0) %>%
+  mutate_at(vars(-County), funs(clean)),
+  caption = "Eviction counts by County and Year",
+  align = 'r') %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+```
 
 <!-- Past research shows that those who are at the greatest risk of eviction are low-income households because stagnant wages and inadequate welfare are unable to compete with rising rents^[[Desmond, Matthew. "Eviction and the reproduction of urban poverty." American Journal of Sociology 118, no. 1 (2012): 88-133.](https://scholar.harvard.edu/mdesmond/files/desmond.evictionpoverty.ajs2012.pdf)]. A large portion of the evicted are mothers with children^[[Desmond, Matthew, Weihua An, Richelle Winkler, and Thomas Ferriss. "Evicting children." Social Forces 92, no. 1 (2013): 303-327.](https://pdfs.semanticscholar.org/f573/43c7b21e13a464f2640734a1494e0dc98b1f.pdf)] and persons of color that live in the most racially diverse and lowest rent neighborhoods^[[Thomas, Timothy Andrew. "Forced Out: Race, Market, and Neighborhood Dynamics of Evictions." PhD diss., 2017.](https://digital.lib.washington.edu/researchworks/handle/1773/40705)]. Declines in affordable housing means there is no where for them to go and they either are displaced out of the county or may enter into the homeless population (we explore this in section 2 below).
 
@@ -640,7 +655,8 @@ knitr::kable(
          `Percent of Evicted Adults` = ev_rate,
          `Eviction Ratio to white` = ratio_wht),
   caption = "Eviction counts, rates, and ratios by race",
-  align = 'r')
+  align = 'r') %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
 ```
 
 
