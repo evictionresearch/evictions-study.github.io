@@ -4,8 +4,11 @@ title: "The State of Evictions:\nResults from the University of Washington Evict
 author:
    - Timothy A. Thomas, Ott Toomet, Ian Kennedy, and Alex Ramiller
    - University of Washington
+# email: t77@uw.edu
 
 date: "Updated `r Sys.Date()`"
+
+thanks: "Funding for this scholarly research was provided in part by Enterprise Community Partners"
 
 # output:
 #   html_document:
@@ -13,6 +16,7 @@ date: "Updated `r Sys.Date()`"
 #     number_sections: true
 
 output:
+  # bookdown::pdf_book:
   bookdown::gitbook:
     config:
       toc:
@@ -23,7 +27,7 @@ output:
       toolbar:
         position: fixed
       edit : null
-      download: null
+      download: yes
       search: yes
       fontsettings:
         theme: white
@@ -35,6 +39,10 @@ output:
       google: no
       linkedin: no
     all: ['facebook', 'google', 'twitter', 'linkedin']
+
+    # download:
+    #   - ["book.pdf", "PDF"]
+
 ---
 
 
@@ -281,7 +289,7 @@ Evictions contribute to homelessness due to rising rents, the lack of affordable
 
 Current homelessness is related to the rapid population growth in the major metropolitan areas with housing construction not being able to keep pace with demand. For instance, between 2010 and 2017, the population in King county rose from 1.931 to 2.189 million^[US Census], a growth of 13.3%.  At the same time the number of housing units rose by 7.9%, from 835,600 to 902,100^[American Community Survey].  As result, Washington State has lost over 90,554 affordable rentals^[Affordable rentals are units that are $800 or less in 2017 dollars and adjusted for inflation.] since 2000, where 85% (76,865) of those homes disappeared between 2012 and 2017.^[U.S. Census] These affordable units were lost to either increased rent or demolition. As a result of  growing inequality^[Economic Policy Institute estimates that between 2009-2015, the top 1% of income earners captured 42% of the total income growth in Washington State.], the current housing crisis is  more concentrated toward the low wage population. During the Great Recession, households lost their homes due to a broad economic crisis impacting every facet of the economy but today, the it is mostly impacting a portion of the population that never really recovered from the recession.
 
-Research shows that low-income households are most likely to be evicted where stagnant wages and inadequate welfare are unable to compete with increases in rent. Research also shows that 80% to 90% of evictions are due to falling behind on rent where over 1/3rd of the defendants in the study were contributing over 80% of their income to rent.^[[Brophy, Paul C., and Rhonda N. Smith. "Mixed-income housing: Factors for success." Cityscape (1997): 3-31.](https://www.jstor.org/stable/pdf/41486509.pdf)] ^[[Desmond, Matthew. "Unaffordable America: Poverty, housing, and eviction." Fast Focus: Institute for Research on Poverty 22, no. 22 (2015): 1-6.](https://scholar.harvard.edu/mdesmond/publications/unaffordable-america-poverty-housing-and-eviction)] In 2017, 46% of Washington households were rent burdened (contributing more than 30% of your income to rent) with about half of those households contributing more than 50% of of their income to rent. This means that thousands of households are constantly on the verge of losing their home to an increase in rent or eviction due to rent burden.
+Research shows that low-income households are most likely to be evicted where stagnant wages and inadequate welfare are unable to compete with increases in rent. Research also shows that 80% to 90% of evictions are due to falling behind on rent where over 1/3rd of the defendants in the study were contributing over 80% of their income to rent.^[[Brophy, Paul C., and Rhonda N. Smith. "Mixed-income housing: Factors for success." Cityscape (1997): 3-31.](https://www.jstor.org/stable/pdf/41486509.pdf)] ^[[Desmond, Matthew. "Unaffordable America: Poverty, housing, and eviction." Fast Focus: Institute for Research on Poverty 22, no. 22 (2015): 1-6.](https://scholar.harvard.edu/mdesmond/publications/unaffordable-america-poverty-housing-and-eviction)] In 2017, 46% of Washington households were rent burdened (contributing more than 30% of your income to rent) with about half of those households contributing more than 50% of their income to rent. This means that thousands of households are constantly on the verge of losing their home to an increase in rent or eviction due to rent burden.
 
 The University of Washington's Eviction Project was formed in the Summer of 2018 to measure and analyze this complex issue of evictions using court records, census data, and housing market trends across the state. We combine advanced data science techniques with demographic, urban sociology, and economic theory to understand how rent, changing neighborhoods, homelessness, and evictions relate to housing insecurity.
 
@@ -305,7 +313,7 @@ ___Washington Evictions Are:___
     * The most common resolution for an eviction is a default judgment--a no-show to a court hearing. In these circumstances, unlawful detainer defendants are almost guaranteed to receive the maximum penalty and fines requested by the landlord, putting them further behind than just losing their home.
 
 ## The purpose of this website
-In light of the increases of rent and lack of affordable housing, there is no wonder why we are seeing an increase in the number of citizens who are homeless. Given that evictions contribute to this problem, and that it is a highly understudied phenomenon in Washington, we believe it is important to share these findings with the public as soon as possible to raise awareness to the issue as well as provide tools for policymakers to address this issue. In most contexts, academics publish these types of findings in journals that rarely reach the public eye. Therefore, we created this website to host a living document that will be frequently updated as we find new results. This early version shows the basics of what we have found so far. Over the next year, we will be adding more content and context.
+In light of the increases of rent and lack of affordable housing, there is no wonder why we are seeing an increase in the number of citizens who are homeless. Given that evictions contribute to this problem, and that it is a highly understudied phenomenon in Washington, we believe it is important to share these findings with the public as soon as possible, raise awareness to the issue, and provide tools for policymakers to address this issue. In most contexts, academics publish these types of findings in journals that rarely reach the public eye. Therefore, we created this website to host a living document that will be frequently updated as we find new results. This early version shows the basics of what we have found so far. Over the next year, we will be adding more content and context.
 
 ## How to use this website
 This document is laid out in sections where, on the left, you will see a table of contents that you can easily navigate. You will also notice arrows on either side of the text that you can use to navigate to the previous or next section.
@@ -414,10 +422,12 @@ Using these addresses, race is estimated through a Bayesian prediction model usi
 Between 2013 and 2017, 1 in 55 (`r round(overallevictionrates, 1)`\%) Washingtonian adults faced an eviction. Figure \@ref(fig:evictioncounts) shows the number of unlawful detainer court cases from 2004 to 2017 across the state of Washington by county. With the exception of King, most counties experienced a steady count of evictions, with the top five most populated counties facing well over 1,000 evictions per year. King (green) saw a peak in evictions just before the end of the Great Recession, which ended around 2009, tapering off during recovery, and then a steady count from 2012.
 
 While the decline in evictions seems promising, a brief study from the Urban Institute suggests that the loss of affordable housing and a drop in the area's low-income population coincides with declines in evictions. In other words, declines in evictions may be because King County evicted everyone they could.^[[Urban Institute 2018: DC’s Eviction Filings Are Down. Are High Rents to Blame?](https://howhousingmatters.org/articles/dcs-eviction-filings-high-rents-blame/)] Section 5 goes further into this discussion, but in brief, Washington has lost 76,865 affordable homes at $800 or less since 2012, coinciding with an increase in homelessness that matches Great Recession numbers. Given that eviction is a leading cause of homelessness^[[Crane, Maureen, and Anthony M. Warnes. "Evictions and prolonged homelessness." Housing studies 15, no. 5 (2000): 757-773.](https://www.tandfonline.com/doi/abs/10.1080/02673030050134592)] ^[[Desmond, Matthew. "Eviction and the reproduction of urban poverty." American Journal of Sociology 118, no. 1 (2012): 88-133.](https://scholar.harvard.edu/mdesmond/files/desmond.evictionpoverty.ajs2012.pdf)] ^[[Curtis, Marah A., Hope Corman, Kelly Noonan, and Nancy E. Reichman. "Life shocks and homelessness." Demography 50, no. 6 (2013): 2227-2253.](http://www.nber.org/papers/w16826.pdf)] it seems likely that lower evictions might decline when homelessness is high and affordable housing is scarce.
-<!-- 
+
+
 ```{r evictioncountycounts, echo = FALSE, message = FALSE, fig.cap = "Unlawful Detainer Cases by Washington County", cache = TRUE}
 
 knitr::kable(
+all_ev_co <-
   year_counts %>%
   group_by(County) %>%
   mutate(Total = sum(Count)) %>%
@@ -425,11 +435,13 @@ knitr::kable(
   replace(is.na(.), 0) %>%
   mutate_at(vars(-County), funs(clean)),
   caption = "Eviction counts by County and Year",
-  align = 'r') %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  align = 'r',
+  full_width = F) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  scroll_box(width = "100%", height = "500px")
 
 ```
- -->
+
 <!-- Past research shows that those who are at the greatest risk of eviction are low-income households because stagnant wages and inadequate welfare are unable to compete with rising rents^[[Desmond, Matthew. "Eviction and the reproduction of urban poverty." American Journal of Sociology 118, no. 1 (2012): 88-133.](https://scholar.harvard.edu/mdesmond/files/desmond.evictionpoverty.ajs2012.pdf)]. A large portion of the evicted are mothers with children^[[Desmond, Matthew, Weihua An, Richelle Winkler, and Thomas Ferriss. "Evicting children." Social Forces 92, no. 1 (2013): 303-327.](https://pdfs.semanticscholar.org/f573/43c7b21e13a464f2640734a1494e0dc98b1f.pdf)] and persons of color that live in the most racially diverse and lowest rent neighborhoods^[[Thomas, Timothy Andrew. "Forced Out: Race, Market, and Neighborhood Dynamics of Evictions." PhD diss., 2017.](https://digital.lib.washington.edu/researchworks/handle/1773/40705)]. Declines in affordable housing means there is no where for them to go and they either are displaced out of the county or may enter into the homeless population (we explore this in section 2 below).
 
 * Number of new homes coming in are coming at a higher price -->
@@ -824,7 +836,7 @@ Almost half of all renters (46%) are rent burdened. Of those households, close t
                          breaks=c("King", "Clark", "Pierce", "Spokane", "Washington"),
                          labels=c("King & Snohomish", "Clark", "Pierce", "Spokane", "Washington State")) +
       scale_y_continuous(labels = scales::dollar,
-                         sec.axis = sec_axis(~(.*12)/.3, name = "Income", labels = scales::dollar)) +
+                         sec.axis = sec_axis(~(.*12)/.3, name = "Income needed to afford rent", labels = scales::dollar)) +
       scale_x_continuous(breaks=c(2003:2019)) +
       theme(axis.text.x = element_text(angle = -45, hjust = 0),
           panel.grid.minor.x = element_blank())
