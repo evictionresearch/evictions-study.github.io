@@ -4,7 +4,7 @@ title: "The State of Evictions:\nResults from the University of Washington Evict
 author:
    - Timothy A. Thomas, Ott Toomet, Ian Kennedy, and Alex Ramiller
    - University of Washington
-# email: t77@uw.edu
+   - <t77@uw.edu>
 
 date: "Updated `r Sys.Date()`"
 
@@ -893,7 +893,7 @@ Finally, when looking at incomes by race (Figure \@ref(fig:medinc) above) there 
 
 # Updates and Corrections {#correct}
 
-<!-- ___2019-02-07___ - Added table of counts of unlawful detainers in   -->
+___2019-02-10___ - Added a table for counts of unlawful detainers by county and year; several grammatical edits.
 
 ___2019-02-07___ - Correction: The WA count of homeless in figure 5.1 was accidentally doubled. Trends stayed the same but count was corrected.
 
