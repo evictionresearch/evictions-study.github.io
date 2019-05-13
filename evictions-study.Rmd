@@ -45,7 +45,6 @@ output:
 
 ---
 
-
 <!-- Packages -->
 ```{r include = FALSE}
   lapply(c("knitr","kableExtra","data.table","gdata","tigris","sf","scales","tidycensus","tidyverse"), require, character.only = TRUE)
@@ -58,7 +57,7 @@ output:
 ```{r include = FALSE, cache = TRUE}
 
   def <-
-    fread("/data/results/evictions_race_sex_2019-01-03.csv.bz2") %>%
+    fread("/data/results/evictions_race_sex_geo.csv.bz2") %>%
     filter(str_detect(Participant, "^DEFENDANT -") |
          Participant == "DEF") %>%
     filter(Company == FALSE) %>%
@@ -209,18 +208,17 @@ output:
   tract_race <-
       clean_def %>%
       filter(Year > 2012) %>%
-      group_by(County, tract_race) %>%
+      group_by(County, race) %>%
       summarise(sample_count = n()) %>%
       na.omit %>%
       group_by(County) %>%
       mutate(sample_prop = sample_count/sum(sample_count)) %>%
-      ungroup() %>%
-      rename(race = tract_race)
+      ungroup() 
 
     # Now, get the total number of evictions for the three counties by 2013 to 2017
   ev_race_est <-
     clean_def %>%
-    filter(County %in% c("King", "Pierce", "Whatcom"),
+    filter(County %in% c("Whatcom", "Snohomish","King", "Pierce"),
          Year > 2012) %>%
     group_by(County, StCoFips) %>%
     summarise(total_ev = n()) %>%
@@ -285,7 +283,7 @@ output:
 
 <!-- In 2008, the Great Recession In 2018, the number of Washington State's homelessness population has risen to match Great Recession numbers. The cause: rising rents and stagnant wages.  about 46% of the states population has been rentburden  while, at the same time, more households  with an increase in the number of individuals experiencing homelessness has reached Great Recession numbers, and rapidly increasing rents are leaving low-income families with few options to live. The consequences of -->
 
-Evictions contribute to homelessness due to rising rents, the lack of affordable housing, and rent burden.^[_Funding for this scholarly research was provided in part by Enterprise Community Partners_]  In 2018, the number of citizens who were homeless reached Great Recession numbers.^[This count underestimates the total number of those experiencing homelessness as it does not include people that are doubling up with friends or family.] The average rent in all of Washington rose from under $800 to $1,000 between 2003 and 2019, which means you need to make about $40,000 in 2019^[[Housing and Urban Development Fair Market Rent Data](https://www.huduser.gov/portal/datasets/fmr.html#2019_data)] to avoid rent burden (paying more than 30% of your income to rent). In order to afford to rent an average-priced home in King County, where rents have reached $2,200, you need to make about $90,000, in Clark County you need about $65,000, and in Pierce you need about $55,000.^[[HUD FMR Data](https://www.huduser.gov/portal/datasets/fmr.html#2019_data)]
+Evictions contribute to homelessness due to rising rents, the lack of affordable housing, and rent burden. In 2018, the number of citizens who were homeless reached Great Recession numbers.^[This count underestimates the total number of those experiencing homelessness as it does not include people that are doubling up with friends or family.] The average rent in all of Washington rose from under $800 to $1,000 between 2003 and 2019, which means you need to make about $40,000 in 2019^[[Housing and Urban Development Fair Market Rent Data](https://www.huduser.gov/portal/datasets/fmr.html#2019_data)] to avoid rent burden (paying more than 30% of your income to rent). In order to afford to rent an average-priced home in King County, where rents have reached $2,200, you need to make about $90,000, in Clark County you need about $65,000, and in Pierce you need about $55,000.^[[HUD FMR Data](https://www.huduser.gov/portal/datasets/fmr.html#2019_data)]
 
 Current homelessness is related to the rapid population growth in the major metropolitan areas with housing construction not being able to keep pace with demand. For instance, between 2010 and 2017, the population in King county rose from 1.931 to 2.189 million,^[US Census] a growth of 13.3%.  At the same time the number of housing units rose by 7.9%, from 835,600 to 902,100.^[American Community Survey] As result, Washington State has lost over 90,554 affordable rentals^[Affordable rentals are units that are $800 or less in 2017 dollars and adjusted for inflation.] since 2000, where 85% (76,865) of those homes disappeared between 2012 and 2017.^[U.S. Census] These affordable units were lost to either increased rent or demolition. As a result of  growing inequality,^[Economic Policy Institute estimates that between 2009-2015, the top 1% of income earners captured 42% of the total income growth in Washington State.] the current housing crisis is more concentrated toward the low wage population. During the Great Recession, households lost their homes due to a broad economic crisis impacting every facet of the economy but today, it is mostly impacting a portion of the population that never really recovered from the recession.
 
@@ -317,6 +315,14 @@ In light of the increases of rent and lack of affordable housing, there is no wo
 
 ## How to use this website
 This document is laid out in sections where, on the left, you will see a table of contents that you can easily navigate. You will also notice arrows on either side of the text that you can use to navigate to the previous or next section.
+
+## Funding for this research
+
+This research was conducted within the context of the [Cascadia Urban Analytics Cooperative](https://www.cascadiadata.org) and the [UW Urban Analytics Group](https://urbanalytics.uw.edu//) led by Bill Howe, with funding from Microsoft, the Bill and Melinda Gates Foundation, and the eScience Institute. Additional funding for this research was provided by Enterprise Community Partners, the Gordan and Betty Moore Foundation, and the Alfred P. Sloan Foundation. Material support was provided by the Center for Studies in Demography and Ecology. 
+  
+
+\includegraphics{/home/t77/images/funderslogos.png}
+
 
 
 <!-- ##  Why are evictions a civil rights issue and not just an economic issue?
@@ -631,6 +637,7 @@ Across Washington state, females were evicted 6% more than males (189,053 female
       spread(race, ev_rate) %>%
       gather(race, rate, Asian:White) %>%
       filter(race != "Other") %>%
+      mutate(County = factor(County, levels = c("Whatcom", "Snohomish", "King", "Pierce"))) %>% 
     ggplot() +
       geom_bar(aes(x = County, y = rate, fill = race),
            position = "dodge",
