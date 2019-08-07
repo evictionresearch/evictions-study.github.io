@@ -321,7 +321,7 @@ This document is laid out in sections where, on the left, you will see a table o
 This research was conducted within the context of the [Cascadia Urban Analytics Cooperative](https://www.cascadiadata.org) and the [UW Urban Analytics Group](https://urbanalytics.uw.edu//) led by Bill Howe, with funding from Microsoft, the Bill and Melinda Gates Foundation, and the eScience Institute. Additional funding for this research was provided by Enterprise Community Partners, the Gordan and Betty Moore Foundation, and the Alfred P. Sloan Foundation. Material support was provided by the Center for Studies in Demography and Ecology. 
   
 
-\includegraphics{/home/t77/images/funderslogos.png}
+![ ](~/images/funderslogos.png)
 
 
 
