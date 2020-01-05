@@ -57,25 +57,27 @@
 								<li><a href="https://tesseract.csde.washington.edu:8080/shiny/evictionmaps/" target="_blank" class="button primary large">Enter</a></li>
 							</ul>
 							<hr />
-								<section>
-									<header>
-										<h4>Acknowledgments</h4>
-										<!-- <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p> -->
-									</header>	
-									<p>This interactive map interface was created by Alex Ramiller with app development and web hosting support by Ott Toomet. Data development and feedback was provided by Tim Thomas, Ian Kennedy, and Jose Hernandez. The Evictions Study would also like to thank Bill Howe and the Cascadia Urban Analytic Cooperative, the University of Washington eScience Institute, and the University of Washington Center for Studies in Demography and Ecology. This application was built using <a href="https://shiny.rstudio.com/" target="blank">Shiny</a> and <a href="https://leafletjs.com/" target="blank">Leaflet</a>.</p>
-								</section>
-
 								<header>
 										<h4>Data and Methods</h4>
 										<!-- <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p> -->
 									</header>
 									<p>This map uses data on eviction filings (WA) and physical removals (MD) collected by The Evictions Study. Eviction filings in Washington State cover 2004 to 2017 and were collected using Optical Character Recognition (OCR) software to scrape addresses and other information from PDF and TIF versions of court records and geolocated using ESRI and SmartyStreets. Data on physical removals in Baltimore were provided by the Baltimore County Sheriff’s Department list of scheduled evictions for 2018. Eviction data for counties where less than 60% of all eviction cases have been geocoded are not included in this display and are instead listed as having “no data”.
 									<br><br>
-									Tenant race estimates are calculated using a Bayesian prediction model developed by <a href="https://github.com/kosukeimai/wru" target="blank">Kosuke Imai and Kabir Khanna</a> using the surname and geolocation of the tenant. Sex estimates are calculated using a model developed by <a href="https://github.com/ropensci/gender" target="blank">Cameron Blevins and Lincoln Mullen</a> that cross-references first names to the US Social Security Name Registry. These imputed estimates produce some possible uncertainty. However, we compared our race and sex estimates to actual intake data from the <a href="https://www.kcba.org/For-the-Public/Free-Legal-Assistance/Housing-Justice-Project" target="blank">King County Bar Housing Justice Project</a> (HJP) and find our rates are within a few percentage points.
+									Tenant race estimates are calculated using a Bayesian prediction model developed by <a href="https://github.com/kosukeimai/wru" target="blank">Kosuke Imai and Kabir Khanna</a> using the surname and geolocation of the tenant. These imputed estimates produce some possible uncertainty. However, we compared our estimates to actual intake data from the <a href="https://www.kcba.org/For-the-Public/Free-Legal-Assistance/Housing-Justice-Project" target="blank">King County Bar Housing Justice Project</a> (HJP) and find our rates are within a few percentage points.
 									<br><br>
 									All other data - including renting population, median household income, median rent, rent burden, and poverty rate - originates from the 5-Year American Community Surveys (ACS) conducted by the US Census Bureau. This map displays the five-year estimates ending in the selected year (i.e. 2013-2017 estimates are used for the 2017 display). These estimates are not available for all years; 2006-2010 estimates are used for selections before 2010, while 2013-2017 estimates are used when 2018 is selected.
 									<br><br>
-									Eviction rate and relative risk estimates are calculated using the estimated number of renting households recorded in the ACS. If the margin of error for the estimated number of renting households within any given census geography is larger than the estimate itself, these estimates are not calculated. Eviction rate represents the number of evictions within a given census geography divided by the estimated number of renting households. Relative risk of eviction is determined by first calculating the expected number of evictions by applying the overall eviction rate across the entire study area to the number of renting households in each census geography, and then dividing the actual number of recorded evictions by that expected number.</p>
+									Eviction rate and relative risk estimates for the given race are calculated using the estimated number of renting households recorded in the ACS. If the margin of error for the estimated number of renting households within any given census geography is larger than the estimate itself, these estimates are not calculated. Eviction rate represents the number of evictions within a given census geography divided by the estimated number of renting households. Relative risk of eviction is determined by first calculating the expected number of evictions for a given race by applying the overall eviction rate across the entire study area to the number of renting households in each census geography, and then dividing the actual number of recorded evictions by that expected number.</p>
+							<hr />
+								<section>
+									<header>
+										<h4>Acknowledgments</h4>
+										<!-- <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p> -->
+									</header>	
+									<p>This interactive map interface was created by Alex Ramiller with app development and web hosting support by Ott Toomet. Data development and feedback was provided by Tim Thomas, Ian Kennedy, and Jose Hernandez. The Evictions Study would not be able to do this work without the generous support from Bill Howe and the Cascadia Urban Analytic Cooperative, the University of Washington eScience Institute, the University of Washington Center for Studies in Demography and Ecology, The University of California at Berkeley Center for Community Innovation, The King and Snohomish County Bar Association Housing Justice Project, The Washington State Office of Civil Legal Aid, The Law Advocates of Whatcom County, 
+
+									The Public Justice Center at Baltimore, The Baltimore City Sheriff's Department, Professor Malcom Drewery at Coppin State University, Professor Meredith Greif at Johns Hopkins University, and Linda Morris at the ACLU. This application was built using <a href="https://shiny.rstudio.com/" target="blank">Shiny</a> and <a href="https://leafletjs.com/" target="blank">Leaflet</a>.</p>
+								</section>
 								</section>
 					</article>
 
