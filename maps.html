@@ -42,29 +42,31 @@
                 <!-- Main -->
                     <article id="main">
                         <header>
-                            <h2>Interactive Maps</h2>
+                            <ul class="actions special">
+                                        <li><a href="https://tesseract.csde.washington.edu:8080/shiny/evictionmaps/" class="button large">Interactive Maps</a></li>
+                            </ul>
+<!--                             <h2><a href="https://tesseract.csde.washington.edu:8080/shiny/evictionmaps/" style="text-decoration: none">Interactive Maps</a></h2> -->
                         </header>
                         <section class="wrapper style5">
                             <div class="inner">
 
-                                <section>
-                                    <h4>Overview</h4>
-                                    <p>The Evictions Study Map showcases data collected by our team as a dynamic and interactive visualization, showing the prevalence of eviction filings across four western Washington counties (King, Pierce, Snohomish, and Whatcom) <!-- and physical removals in Baltimore City, Maryland  -->by year and by race at multiple geographic scales. Demographic, income and rent characteristics are also included to provide context and highlight the attributes of places where evictions tend to occur.
-                                    <br><br>
-                                    <i>Note that data are not available for every county in every year, and estimates may slightly change as we process more data.</i>
-                                </p>
-                            <ul class="actions special">
-                                <li><a href="https://tesseract.csde.washington.edu:8080/shiny/evictionmaps/" target="_blank" class="button primary large">Enter</a></li>
-                            </ul>
+                                        <h4>Overview</h4>
+                                    
+                                    <p>The Evictions Study Map showcases data collected by our team as a dynamic and interactive visualization, showing the prevalence of eviction filings across four western Washington counties (King, Pierce, Snohomish, and Whatcom) <!-- and physical removals in Baltimore City, Maryland  -->by year and by race at multiple geographic scales. Demographic, income and rent characteristics are also included to provide context and highlight the attributes of places where evictions tend to occur. Our demographic estimates show <a href="https://evictions.study/washington/results.html#race-of-the-evicted" target="blank">a massive racial disparity making evictions a civil rights issue</a> related to contemporary <a href="https://www.huduser.gov/portal/periodicals/cityscpe/vol17num3/ch1.pdf" target="blank">discrimination in housing access</a> and economic inequality linked to the <a href="https://www.epi.org/publication/the-color-of-law-a-forgotten-history-of-how-our-government-segregated-america/" target="blank">legacies of segregation, policies, and practices directed against persons of color</a>.</p>
+                                    
+                                    <p><i>Note that data are not available for every county in every year, and estimates may slightly change as we process more data.</i></p>
+
+                                    <ul class="actions special">
+                                        <li><a href="https://tesseract.csde.washington.edu:8080/shiny/evictionmaps/" target="_blank" class="button primary">See the Map</a></li>
+                                    </ul>
+
                             <hr />
 
-                                <header>
-                                    <h4>Washington State Summary of Findings</h4>
+                                        <h4>Washington State Summary of Findings</h4>
 
                                     <p>Over the past decade, research has shown that <a href="https://scholar.harvard.edu/mdesmond/files/desmond.evictionpoverty.ajs2012.pdf" target="blank">evictions reinforces poverty</a> and limits housing opportunities for the nation's most economically vulnerable. The mark of an eviction sets households on a path of housing insecurity that can prevent them from living in better neighborhoods, establishing beneficial networks and economic opportunities, and is <a href="http://ajph.aphapublications.org/doi/10.2105/AJPH.2013.301468" target="blank">one of the leading indicators of future homelessness</a>.</p>
 
-                                    <p>Our research shows that evictions disparately impact households of color, particularly adults who are Black. In Pierce County, about 7% of the population is Black. However 1 in 6 Black adults (18% of the Black adult population) were named in an eviction filing from 2013 to 2017. One in eleven black adults were named in King County. This disparity makes evictions a civil rights issue that is related to contemporary discrimination in housing access, policing, and the legacies of segregation and policies directed against persons of color. 
-                                    </p>
+                                    <p>Based on our race estimates, we find that evictions disparately impacts households of color, particularly adults who are Black. In Pierce County, about 7% of the population is Black. However, 1 in 6 Black adults (18% of the Black adult population) were named in an eviction filing from 2013 to 2017. One in eleven black adults were named in King County.</p>
 
                                     <h5>What this map offers</h5>
                                     <p>This map shows the relative risk of an eviction for different racial groups within various neighborhoods in Whatcom, Snohomish, King, and Pierce. At the County level the map features all eviction filing counts for the entire state (race estimates are not available at the county level). Note that King County tract and municipality level data is limited to the years 2006, 2010, 2011, 2013, and 2017 and Snohomish County tract and municipality data is missing for 2011 and 2012 due to limited access to these records. Tract level eviction data covers an average of 85% of all eviction filings, a sample size that is still large enough to provide a realistic estimate of eviction risks and rates.</p>
@@ -72,42 +74,40 @@
                                     <p>We also provide overlays for state legislative districts, historical redlining zones, and other census variables related to evictions and housing.</p>
 
                                     <h5>Observed Trends</h5>
-                                    <p>When examining the 2017 tract relative risk of eviction (the probability of an eviction filing in a neighborhood as compared to the probability of an eviction filing in the rest of the region) <b><i>King County evictions concentrate in southern suburban towns while Snohomish and Pierce Counties have concentrations in the urban cores and nearby outskirts of Everett and Tacoma</i></b>. These areas are also the most racially diverse neighborhoods in these counties.
-                                    </p>
+                                    <p>When examining the 2017 tract relative risk of eviction (the probability of an eviction filing in a neighborhood as compared to the probability of an eviction filing in the rest of the region) <b><i>King County evictions concentrate in southern suburban towns while Snohomish and Pierce Counties have concentrations in the urban cores and nearby outskirts of Everett and Tacoma</i></b>. These areas are also the most racially diverse neighborhoods in these counties.</p>
 
                                     <p>When examining changes from 2006 to 2017, <b><i>King County evictions moved from South Seattle to South King County while Snohomish and Pierce county eviction risks stay relatively stable in place.</i></b> When you set the "Race of Evicted Tenant" on the map to Black, you can see the greatest risk of eviction in 2006 concentrating in South Seattle while risk in 2017 moved further south. In Pierce County, some of the risk is situated in, and around, historically redlined neighborhoods.</p>
 
-                                    <p>The flow of King County eviction risk moving south also matches the mobility patterns of persons of color over the past 40 years.
-                                    </p>
-                                    <div class="box alt">
-                                        <div class="row gtr-50 gtr-uniform">
-                                            <div class="col-12"><span class="image fit"><img src="images/pocmobility.png" alt="" /></span></div>
-                                    </div>
+                                    <p>The flow of King County eviction risk moving south also matches the mobility patterns of persons of color over the past 40 years.</p>
+
+                                        <div class="box alt">
+                                            <div class="row gtr-50 gtr-uniform">
+                                                <div class="col-12"><span class="image fit"><img src="images/pocmobility.png" alt="" /></span></div>
+                                        </div>
 
                                     <p>Eviction flows following racial mobility patterns is not unsurprising because of the high rate of evictions among households of color, especially among Black households. Our <a href="https://evictions.study/washington/results.html#race-of-the-evicted" target="blank">report on Washington State</a> estimates that between 2013 and 2017, 1 in 6 Black adults in Pierce County and 1 in 11 Black adults in King County were named in an eviction filing. This high rate of eviction among Black and Latinx households is not simply due to lower incomes. It also relates to the legacies of segregation that prevented many households of color from <a href="https://www.routledge.com/Black-Wealth---White-Wealth-A-New-Perspective-on-Racial-Inequality-2nd/Oliver-Shapiro/p/book/9780415951678" targe="blank">purchasing homes and participate in the building of the middle class</a> through historical policies <a href="https://www.epi.org/publication/the-color-of-law-a-forgotten-history-of-how-our-government-segregated-america/" target="blank">that subjugated and segregated persons of color</a>. Furthermore, the <a href="https://www.annualreviews.org/doi/abs/10.1146/annurev.soc.29.010202.100002" target="blank">dynamics of persistent segregation</a> limits access to better neighborhoods, jobs, and class mobility on top of <a href="https://www.huduser.gov/portal/periodicals/cityscpe/vol17num3/ch1.pdf" target="blank">discrimination in housing access</a>. As urban spaces gentrify, rising rents put all low-income renters in urban neighborhoods at risk of displacement, <a href="https://www.jstor.org/stable/23800983?seq=1" target="blank">especially Black and Latinx households</a>.</p>
 
 <!--update this when we release more-->
-                                    <p>Our goal in releasing these maps and reports is to follow in the footsteps of other <a href="https://www.antievictionmap.com" target="blank">collective</a> and <a href="https://evictionlab.org">scholarly</a> researchers and reveal previously unknown patterns of eviction while inspiring more research and discussion on the links of neighborhood change and housing precarity in the United States. We are currently examining other cities and states and will release those reports as they become available. So, please visit us again and follow our progress on <a href="https://twitter.com/timthomas" targe="blank">twitter.</p>
+                                    <p>Our goal in releasing these maps and reports is to follow in the footsteps of other <a href="https://www.antievictionmap.com" target="blank">collective</a> and <a href="https://evictionlab.org">scholarly</a> researchers and reveal previously unknown patterns of eviction while inspiring more research and discussion on the links of neighborhood change and housing precarity in the United States. We are currently examining other cities and states and will release those reports as they become available. So, please visit us again and follow our progress on <a href="https://twitter.com/timthomas" targe="blank">twitter</a>.</p>
+
+                                <hr />
                                     
-                                <header>
                                         <h4>Data and Methods</h4>
                                         <!-- <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p> -->
-                                    </header>
-                                    <p>This map uses data on eviction filings (WA) <!-- and physical removals (MD)  -->collected by The Evictions Study. Eviction filings in Washington State cover were pulled with permission from the respective County Court Clerk's online portals and cover 2004 to 2017. We then used Optical Character Recognition (OCR) software to scrape addresses and other information from PDF and TIF versions of court records and geolocated them using ESRI and SmartyStreets. <!-- Data on physical removals in Baltimore were provided by the Baltimore County Sheriff’s Department list of scheduled evictions for 2018.  -->Eviction data for counties where less than 60% of all eviction cases have been geocoded are not included in this display and are instead listed as having “no data”.</p>
+
+                                    <p>This map uses data on eviction filings (WA) <!-- and physical removals (MD)  -->collected by The Evictions Study. Eviction filings in Washington State were downloaded from the respective County Court Clerk's online portals covering a majority of the years 2004 to 2017. We then used Optical Character Recognition (OCR) software to scrape addresses and other information from PDF and TIF versions of court records and geolocated them using ESRI and SmartyStreets. <!-- Data on physical removals in Baltimore were provided by the Baltimore County Sheriff’s Department list of scheduled evictions for 2018.  -->For each year, we were able to pull geolocate about 85% of all files except for several missing years in King County. Eviction data for counties where less than 60% of all eviction cases have been geocoded are not included in this display and are not displayed.</p>
                                     
                                     <p>Tenant race estimates are calculated using a Bayesian prediction model developed by <a href="https://github.com/kosukeimai/wru" target="blank">Kosuke Imai and Kabir Khanna</a> using the surname and geolocation of the tenant. These imputed estimates produce some possible uncertainty. However, we compared our estimates to actual intake data from the <a href="https://www.kcba.org/For-the-Public/Free-Legal-Assistance/Housing-Justice-Project" target="blank">King County Bar Housing Justice Project</a> (HJP) and find our rates are within a few percentage points.</p>
                                     
                                     <p>All other data - including renting population, median household income, median rent, rent burden, and poverty rate - originates from the 5-Year American Community Surveys (ACS) conducted by the US Census Bureau. This map displays the five-year estimates ending in the selected year (i.e. 2013-2017 estimates are used for the 2017 display). These estimates are not available for all years; 2006-2010 estimates are used for selections before 2010, while 2013-2017 estimates are used when 2018 is selected.</p>
                                     
-                                    <p>Eviction rate and relative risk estimates for the given race are calculated using the estimated number of renting households recorded in the ACS. If less than 100 renting households are recorded within any given census geography, or if the margin of error for the estimated population of renting households is larger than the estimate itself, these estimates are not calculated. Eviction rate represents the number of evictions within a given census geography divided by the estimated number of renting households. For any given race, the relative risk of eviction is based on the rate of evictions among renting households within each census geography divided by the rate of evictions across the entire study area.</p>
+                                    <p>Eviction rate and relative risk estimates for the given race are calculated using the estimated number of renting households recorded in the ACS. If less than 100 renting households are recorded within any given census geography, or if the margin of error for the estimated population of renting households is larger than the estimate itself, these estimates are labeled as "no. Eviction rate represents the number of evictions within a given census geography divided by the estimated number of renting households. For any given race, the relative risk of eviction is based on the rate of evictions among renting households within each census geography divided by the rate of evictions across the entire study area.</p>
+                            
                             <hr />
-                                <section>
-                                    <header>
                                         <h4>Acknowledgments</h4>
                                         <!-- <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p> -->
-                                    </header>   
+
                                     <p>This interactive map interface was created by Alex Ramiller with app development and web hosting support by Ott Toomet. Data development and feedback was provided by Tim Thomas, Ian Kennedy, and Jose Hernandez. The Evictions Study would not be possible without the generous support from Bill Howe and the Cascadia Urban Analytic Cooperative, the University of Washington eScience Institute, the University of Washington Center for Studies in Demography and Ecology, The University of California at Berkeley Center for Community Innovation and the Urban Displacement Project, Enterprise Community Partners, The King and Snohomish County Bar Association Housing Justice Project, The Washington State Office of Civil Legal Aid, The Law Advocates of Whatcom County, John Stovall, The Public Justice Center at Baltimore, The Baltimore City Sheriff's Department, Professor Malcom Drewery at Coppin State University, Professor Meredith Greif at Johns Hopkins University, and Linda Morris at the ACLU. This application was built using <a href="https://shiny.rstudio.com/" target="blank">Shiny</a> and <a href="https://leafletjs.com/" target="blank">Leaflet</a>.</p>
-                                </section>
                                 </section>
                     </article>
 
