@@ -3693,7 +3693,7 @@ input, select, textarea {
 			-moz-transition-delay: 1.25s;
 			-webkit-transition-delay: 1.25s;
 			-ms-transition-delay: 1.25s;
-			transition-delay: 1.25s;
+			transition-delay: .2s;
 			content: '';
 			background: #2e3842;
 			display: block;
