@@ -33,9 +33,9 @@ state <-
 map <- 
 leaflet(
   state, 
-  options = leafletOptions(zoomControl = FALSE, minZoom = 3.7, maxZoom = 3.7, dragging = FALSE)) %>% 
+  options = leafletOptions(zoomControl = FALSE, minZoom = 3.5, maxZoom = 3.5, dragging = FALSE)) %>% 
     # suspendScroll() %>% 
-    setView(lat = 39.82, lng = -98.57, zoom = 3.7) %>% 
+    setView(lat = 39.82, lng = -98.57, zoom = 3.5) %>% 
     addMapPane(name = "polygons", zIndex = 410) %>% 
     addMapPane(name = "maplabels", zIndex = 420) %>% 
      addProviderTiles("CartoDB.PositronNoLabels") %>%
