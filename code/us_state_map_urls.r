@@ -1,3 +1,6 @@
+# ==========================================================================
+# Create U.S. map with url links for each state
+# ==========================================================================
 library(tidyverse)
 library(tigris)
 library(leaflet)
