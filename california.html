@@ -62,10 +62,24 @@
 													<!-- <br/> -->
 													<iframe src="https://evictions.study/california/maps/ca_state.html" class="image fit" name="myiframe" height=400>
 													</iframe>
-													<ul class="actions">
-													<li><a href="https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/" target="myiframe" class="button primary">Bay Area Lockouts</a></li>
-													<li><a href="https://evictions.study/california/maps/ca_state.html" target="myiframe" class="button primary">CA State Filings</a></li>
+													<ul class="actions" id='twobutton'>
+														<li><a href="https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/" target="myiframe" class="button primary">Bay Area Lockouts</a></li>
+														<li><a href="https://evictions.study/california/maps/ca_state.html" target="myiframe" class="button">CA State Filings</a></li>
 													</ul>
+													<!-- Script to toggle buttons -->
+													<script>
+														var header = document.getElementById("twobutton");
+														var btns = header.getElementsByClassName("button");
+														for (var i = 0; i < btns.length; i++) {
+														  btns[i].addEventListener("click", function() {
+														  var current = document.getElementsByClassName("primary");
+														  if (current.length > 0) {
+														    current[0].className = current[0].className.replace(" primary", "");
+														  }
+														  this.className += " primary";
+														  });
+														}
+													</script>
 
 <!-- 															<div class="col-4 col-12-small">
 																<input type="radio" onclick="window.myiframe='https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/';" />
