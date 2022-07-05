@@ -23,12 +23,15 @@ state <-
     states(
         cb = TRUE
     ) %>% 
-    filter(STUSPS %in% c('CA', 'WA', 'MD')) %>% 
+    filter(STUSPS %in% c('CA', 'WA', 'MD', 'OH')) %>%
     mutate(win_url = 
         case_when(
             STUSPS == 'CA' ~ 'https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/', 
             STUSPS == 'WA' ~ 'https://evictions.study/washington/maps/summary.html', 
-            STUSPS == 'MD' ~ 'https://evictions.study/maryland/report/baltimore.html'))
+            STUSPS == 'MD' ~ 'https://evictions.study/maryland/report/baltimore.html',
+            STUSPS == 'OH' ~ 'https://evictions.study/ohio/dayton.html'
+        )
+        )
 
 map <- 
 leaflet(
