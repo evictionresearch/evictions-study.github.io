@@ -27,9 +27,9 @@ state <-
     mutate(win_url = 
         case_when(
             STUSPS == 'CA' ~ 'https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/', 
-            STUSPS == 'WA' ~ 'https://evictions.study/washington/maps/summary.html', 
-            STUSPS == 'MD' ~ 'https://evictions.study/maryland/report/baltimore.html',
-            STUSPS == 'OH' ~ 'https://evictions.study/ohio/dayton.html'
+            STUSPS == 'WA' ~ 'https://evictionresearch.net/washington/maps/summary.html',
+            STUSPS == 'MD' ~ 'https://evictionresearch.net/maryland/report/baltimore.html',
+            STUSPS == 'OH' ~ 'https://evictionresearch.net/ohio/dayton.html'
         )
         )
 
@@ -61,4 +61,4 @@ leaflet(
   htmlwidgets::onRender(jsCode, data=state) 
 
 map
-saveWidget(map, '~/git/evictions-study.github.io/maps/us_map.html')
+saveWidget(map, '~/git/evictionresearch/evictions-study.github.io/maps/us_map.html')
